@@ -1,9 +1,11 @@
 - name: Update system
+  become: true
   pacman:
     update_cache: yes
     upgrade: yes
 
 - name: Install base packages
+  become: true
   pacman:
     name:
       - 7zip
@@ -33,6 +35,7 @@
       - nicotine+
       - nvtop
       - obsidian
+      - openssh
       - pkgfile
       - playerctl
       - qbittorrent

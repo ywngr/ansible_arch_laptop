@@ -1,4 +1,5 @@
 - name: Change user shell
+  become: true
   user:
     name: "{{ username }}"
     shell: "/usr/bin/zsh"
@@ -6,25 +7,19 @@
 - name: Deploy .bashrc
   copy:
     src: files/bashrc
-    dest: /home/{{ username }}/.bashrc
-    owner: "{{ username }}"
-    group: "{{ username }}"
+    dest: {{ home }}/.bashrc
     mode: '0644'
 
 - name: Create .bashrc.d directory
   file:
-    path: /home/{{username}}/.bashrc.d
+    path: {{ home }}/.bashrc.d
     state: directory
-    owner: "{{ username }}"
-    group: "{{ username }}"
     mode: '0755'
 
 - name: Copy .bashrc.d drop-in files
   copy:
     src: files/bashrc.d/
-    dest: /home/{{ username }}/.bashrc.d/
-    owner: "{{ username }}"
-    group: "{{ username }}"
+    dest: {{ home }}/.bashrc.d/
     mode: '0644'
 
 - name: Check pkgfile's cache age

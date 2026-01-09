@@ -1,0 +1,37 @@
+ServerAliveInterval 5
+
+Host point
+	User a.krylasov
+	Hostname point.mail.ru
+	ForwardAgent yes
+	Compression yes
+
+Host cinemascope.ru
+  HostName cinemascope.ru
+  IdentityFile ~/.ssh/docean
+  User root
+  Port 244
+
+Host nowave.cc
+  HostName nowave.cc
+  IdentityFile ~/.ssh/docean
+  User ywngr
+
+Host point
+  User a.krylasov
+  HostName point.mail.ru
+  ForwardAgent yes
+
+Host sdbox
+  User ywngr
+  HostName 65.108.222.148
+  Port 2222
+  IdentityFile ~/.ssh/docean
+  ServerAliveInterval 60
+  ServerAliveCountMax 2
+
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+  User git
+

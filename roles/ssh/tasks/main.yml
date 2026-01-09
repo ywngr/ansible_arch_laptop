@@ -1,0 +1,20 @@
+- name: Ensure .ssh directory present
+  file:
+    state: directory
+    path: /home/{{ username }}/.ssh
+    mode: '0700'
+
+- name: Copy .ssh/config file
+  copy:
+    src: files/ssh_config
+    dest: "{{ home }}/.ssh/config"
+    mode: '0644'
+
+    # to-do: ssh-agent enable and add env 
+
+- name: Ensure SSH_AUTH_SOCK is present in KeePassXC config
+  community.general.ini_file:
+    path: "{{ home }}/.cache/keepassxc/keepassxc.ini"
+    section: SSHAgent
+    option: AuthSockOverride
+    value: /run/user/1000/ssh-agent.socket

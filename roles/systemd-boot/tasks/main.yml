@@ -15,6 +15,7 @@
   command: grep '^options' /boot/loader/entries/linux.conf
   register: options_string
   changed_when: false
+
 - name: Create lts-linux entry config
   become: true
   copy:
@@ -27,6 +28,7 @@
     mode: '0755'
     owner: root
     group: root
+
 - name: Create zen-linux entry config
   become: true
   copy:
