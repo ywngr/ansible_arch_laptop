@@ -6,9 +6,11 @@
     - shell
 #    - zsh
     - kde
+    - power
     - systemd-boot
     - rclone
     - ssh
+    - keepassxc
 #    - audio
 #    - fonts
 #    - dotfiles

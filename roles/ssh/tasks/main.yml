@@ -14,20 +14,11 @@
   ansible.builtin.systemd_service:
     name: ssh-agent.service
     enabled: true
-    state: started
     scope: user
-    # to-do: ssh-agent enable and add env 
 
 - name: Enable ssh-agent.socket
   ansible.builtin.systemd_service:
     name: ssh-agent.socket
     enabled: true
-    state: started
     scope: user
 
-- name: Ensure SSH_AUTH_SOCK is present in KeePassXC config
-  community.general.ini_file:
-    path: "{{ home }}/.cache/keepassxc/keepassxc.ini"
-    section: SSHAgent
-    option: AuthSockOverride
-    value: /run/user/1000/ssh-agent.socket

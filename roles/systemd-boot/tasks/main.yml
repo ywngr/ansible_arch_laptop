@@ -1,3 +1,16 @@
+- name: Deploy loader.conf
+  become: true
+  copy:
+    dest: /boot/loader/loader.conf
+    owner: root
+    group: root
+    mode: '0755'
+    content: |
+      default @saved
+      timeout 3
+      console-mode max
+      editor no
+
 - name: Find default (by archinstall) entry config
   become: true
   find:

@@ -1,0 +1,27 @@
+- name: Install tlp packages
+  become: true
+  pacman:
+    name:
+      - tlp
+      - tlp-pd
+      - tlp-rdw
+    state: present
+
+- name: Enable tlp, tlp-pd and NetworkManager-dispatcher systemd service
+  become: true
+  ansible.builtin.systemd_service:
+    enabled: true
+    name: "{{ item }}"
+  loop:
+    - tlp.service
+    - tlp-pd.service
+    - NetworkManager-dispatcher.service
+
+- name: Mask systemd-rfkill.service and systemd-rfkill.socket
+  become: true
+  ansible.builtin.systemd_service:
+    masked: yes
+    name: "{{ item }}"
+  loop:
+    - systemd-rfkill.service
+    - systemd-rfkill.socket

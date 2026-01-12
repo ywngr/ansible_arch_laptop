@@ -1,0 +1,40 @@
+- name: Add desktop entry to autostart
+  copy:
+    src: files/org.keepassxc.KeePassXC.desktop
+    dest: "{{ home }}/.config/autostart/"
+
+- name: First start
+  command: /usr/bin/keepassxc
+  args:
+    creates: "{{ home }}/.cache/keepassxc/keepassxc.ini"
+
+- name: Insert/Update configuration block in .cache/keepasscx
+  ansible.builtin.blockinfile:
+    path: "{{ home }}/.cache/keepassxc/keepassxc.ini"
+    append_newline: true
+    prepend_newline: true
+    block: |
+      [GUI]
+      FontSizeOffset=2
+      [SSHAgent]
+      AuthSockOverride=/run/user/1000/ssh-agent.socket
+
+- name: Insert/Update configuration block in .config/keepasscx
+  ansible.builtin.blockinfile:
+    path: "{{ home }}/.config/keepassxc/keepassxc.ini"
+    append_newline: true
+    prepend_newline: true
+    block: |
+      [General]
+      AutoGeneratePasswordForNewEntries=true
+      NumberOfRememberedLastDatabases=2
+      
+      [Security]
+      ClearClipboardTimeout=15
+      IconDownloadFallback=true
+      
+      [GUI]
+      MinimizeOnClose=true
+      MinimizeOnStartup=true
+      ShowTrayIcon=true
+      TrayIconAppearance=colorful

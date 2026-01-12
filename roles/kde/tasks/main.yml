@@ -15,3 +15,21 @@
     mode: '0644'
     owner: root
     group: root
+
+- name: Config Breeze Window Decorarion
+  copy:
+    src: files/breezerc
+    dest: "{{ home }}/.config/breezerc"
+    mode: '0600'
+
+- name: Create autostart directory
+  file:
+    path: "{{ home }}/.config/autostart"
+    state: directory
+    mode: '0755'
+#- name: Setting up desktop color
+#  community.general.ini_file:
+#    path: "{{ home }}/.config/plasma-org.kde.plasma.desktop-appletsrc"
+#    section: 
+#    option:
+#    value: 

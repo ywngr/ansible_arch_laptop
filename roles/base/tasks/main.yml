@@ -43,9 +43,6 @@
       - socat
       - strace
       - strawberry
-      - tlp
-      - tlp-pd
-      - tlp-rdw
       - tmux
       - unzip
       - whois
