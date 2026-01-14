@@ -35,8 +35,15 @@
     line: 'activate task manager entry 1=`,Meta+1,Activate Task Manager Entry 1'
 
 - name: Create shortcut for drop-down terminal
-  ansible.builtin.lineinfile:
+  ansible.builtin.replace:
     path: "{{ home }}/.config/plasma-org.kde.plasma.desktop-appletsrc"
-    search_string: 'launchers='
-    line: 'launchers=applications:kitty.desktop,preferred://filemanager'
+    regexp: '^launchers=.+$'
+    replace: 'launchers=applications:kitty.desktop,applications:firefox.desktop,preferred://filemanager'
 
+- name: Disable application restoring after reboot
+  copy:
+    dest: "{{ home }}/.config/ksmserverrc"
+    content: |
+      [General]
+      loginMode=emptySession
+    mode: '0600'

@@ -36,6 +36,6 @@
       MinimizeOnStartup=true
       MinimizeToTray=true
       ShowTrayIcon=true
-      TrayIconAppearance=monochrome-dark
+      TrayIconAppearance=colorful
       [SSHAgent]
       Enabled=true

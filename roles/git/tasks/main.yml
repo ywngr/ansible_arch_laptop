@@ -1,0 +1,5 @@
+- name: Copy .gitconfig
+  copy:
+    src: files/.gitconfig
+    dest: "{{ home }}/.gitconfig"
+    mode: '0644'

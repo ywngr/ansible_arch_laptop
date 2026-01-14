@@ -12,7 +12,8 @@
     - rclone
     - ssh
     - keepassxc
-    - aur
+    - git
+#    - aur
 #    - audio
 #    - fonts
 #    - dotfiles
