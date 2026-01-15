@@ -1,11 +1,5 @@
 - name: Copy drop-in config
   copy:
     src: files/include.conf
-    dest: "{{ home }}/.config/kitty/"
+    dest: "{{ home }}/.config/kitty/kitty.conf"
 
-#- name: Append include parameter to config
-#  ansible.builtin.blockinfile:
-#    path: "{{ home }}/.config/kitty/kitty.conf"
-#    insertafter: EOF
-#    block: |
-#      include include.conf

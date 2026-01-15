@@ -1,8 +1,5 @@
 [Common]
 OutlineCloseButton=true
-OutlineIntensity=OutlineOff
-RoundedCorners=false
-ShadowSize=ShadowNone
 
 [Windeco]
 DrawBackgroundGradient=true

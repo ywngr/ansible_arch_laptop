@@ -25,3 +25,10 @@
   loop:
     - systemd-rfkill.service
     - systemd-rfkill.socket
+
+- name: Copy drop-in config
+  become: true
+  ansible.builtin.copy:
+    src: files/tlp/tlp-config.conf
+    dest: /etc/tlp.d/01-user.conf
+    mode: '0644'

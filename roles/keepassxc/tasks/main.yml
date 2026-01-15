@@ -16,6 +16,9 @@
     block: |
       [GUI]
       FontSizeOffset=2
+      GroupSplitterState=536, 413
+      PreviewSplitterState=632, 317
+      SplitterState=230, 1667
       [SSHAgent]
       AuthSockOverride=/run/user/1000/ssh-agent.socket
 
