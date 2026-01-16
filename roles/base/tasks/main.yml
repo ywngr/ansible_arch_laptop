@@ -32,6 +32,7 @@
       - mpv
       - mpv-mpris
       - neovim
+      - networkmanager-openvpn
       - nicotine+
       - nvtop
       - obsidian
@@ -51,3 +52,17 @@
       - zsh
     state: present
 
+- name: Create /etc/crypttab
+  become: true
+  copy:
+    mode: '0600'
+    dest: /etc/crypttab
+    content: |
+      archive LABEL=archive /etc/cryptsetup-keys.d/secondary.key  timeout=180,luks,nofail
+
+- name: Add archive partition to fstab
+  become: true
+  lineinfile:
+    path: /etc/fstab
+    line: "/dev/mapper/archive {{ home }}/archive ext4  rw,relatime,nofail	0 2"
+    insertafter: EOF

@@ -1,3 +1,9 @@
+- name: Install kde packages
+  become: true
+  pacman:
+    name:
+      - kwalletmanager
+
 - name: Create sddm config directory
   become: true
   file:
