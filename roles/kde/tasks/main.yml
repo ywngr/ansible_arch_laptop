@@ -53,3 +53,104 @@
       [General]
       loginMode=emptySession
     mode: '0600'
+
+- name: Overrides for plasma-org.kde.plasma.desktop-appletsrc
+  blockinfile:
+    path: "{{ home }}/.config/plasma-org.kde.plasma.desktop-appletsrc"
+    append_newline: true
+    prepend_newline: true
+    block: |
+      # --- Desktop wallpaper and color
+      [Containments][1]
+      wallpaperplugin=org.kde.color
+      [Containments][1][Wallpaper][org.kde.color][General]
+      Color=85,85,119
+      [Containments][2]
+      formfactor=3
+      location=6
+      # --- Application launcher
+      [Containments][2][Applets][3]
+      immutability=1
+      plugin=org.kde.plasma.kickoff
+      [Containments][2][Applets][3][Configuration]
+      PreloadWeight=100
+      popupHeight=506
+      popupWidth=648
+      [Containments][2][Applets][3][Configuration][General]
+      favoritesDisplay=1
+      favoritesPortedToKAstats=true
+      icon=kde-frameworks
+      paneSwap=true
+      systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
+      # --- Clock
+      [Containments][2][Applets][21][Configuration][Appearance]
+      fontWeight=400
+      showDate=false
+      use24hFormat=2
+      # --- Virtual desktop
+      [Containments][2][Applets][4][Configuration][General]
+      displayedText=Number
+      # --- Icons-Only Task Manager
+      [Containments][2][Applets][5][Configuration][General]
+      iconSpacing=0
+      # --- System Tray
+      [Containments][2][Applets][7][General]
+      iconSpacing=1
+      [Containments][2][General]
+      AppletOrder=3;5;6;7;21;4
+
+- name: Overrides for plasmashellrc
+  blockinfile:
+    path: "{{ home }}/.config/plasmashellrc"
+    append_newline: true
+    prepend_newline: true
+    block: |
+      [PlasmaTransientsConfig]
+      PreloadWeight=42
+      [PlasmaViews][Panel 2]
+      floating=0
+      floatingApplets=1
+      alignment=1
+      panelOpacity=0
+      panelLengthMode=1
+      [PlasmaViews][Panel 2][Defaults]
+      thickness=68
+
+- name: Disable animation kdeglobals
+  lineinfile:
+    path: "{{ home }}/.config/kdeglobals"
+    search_string: 'AnimationDurationFactor'
+    line: 'AnimationDurationFactor=0'
+
+- name: Disable animation xsettingsd
+  lineinfile:
+    path: "{{ home }}/.config/xsettingsd/xsettingsd.conf"
+    search_string: 'Gtk/EnableAnimations'
+    line: 'Gtk/EnableAnimations 0'
+
+- name: Disable animation gtk-3.0
+  lineinfile:
+    path: "{{ home }}/.config/gtk-3.0/settings.ini"
+    search_string: 'gtk-enable-animations'
+    line: 'gtk-enable-animations=false'
+
+- name: Disable animation gtk-4.0
+  lineinfile:
+    path: "{{ home }}/.config/gtk-4.0/settings.ini"
+    search_string: 'gtk-enable-animations'
+    line: 'gtk-enable-animations=false'
+
+- name: Apply Desktop Effects kwinrc file
+  blockinfile:
+    path: "{{ home }}/.config/kwinrc"
+    append_newline: true
+    prepend_newline: true
+    block: |
+      [Effect-diminactive]
+      Strength=70 
+      [Plugins]
+      dialogparentEnabled=false
+      diminactiveEnabled=true
+      dimscreenEnabled=false
+      screenedgeEnabled=false
+      shakecursorEnabled=false
