@@ -39,4 +39,4 @@
   command: pkgfile -u
   when: >
     not pkgfile_stat.stat.exists or 
-    (ansible_facts['date_time']['epoch'] | int) - (pkgfile_stat.stat.mtime | int) > 604800
+    (ansible_facts['date_time']['epoch'] | int) - (pkgfile_stat.stat.mtime | int) > 2592000

@@ -13,3 +13,8 @@
     src: files/steam.desktop
     dest: "{{ home }}/.local/share/applications/steam.desktop"
     mode: '0600'
+
+- name: Copy MangoHud.conf
+  copy:
+    src: files/MangoHud.conf
+    dest: "{{ home }}/.config/MangoHud/MangoHud.conf"
