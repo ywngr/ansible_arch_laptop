@@ -1,6 +1,5 @@
 - name: Arch Linux laptop setup
   hosts: localhost
-
   roles:
     - base
     - shell
@@ -8,7 +7,9 @@
     - kde
     - kitty
     - power
-    - systemd-boot
+    - role: systemd-boot
+      tags:
+        - boot
     - rclone
     - ssh
     - keepassxc

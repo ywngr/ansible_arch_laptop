@@ -64,6 +64,13 @@
     regexp: '^Icon=.+$'
     replace: "Icon={{ home }}/.local/share/icons/Mozilla_Firefox_3.5_logo.png"
 
+- name: Replace firefox icon in .desktop file
+  become: true
+  replace:
+    path: /usr/share/applications/org.kde.dolphin.desktop
+    regexp: '^Icon=.+$'
+    replace: "Icon=folder-brown"
+
 - name: Disable application restoring after reboot
   copy:
     dest: "{{ home }}/.config/ksmserverrc"
@@ -97,7 +104,7 @@
       [Containments][2][Applets][3][Configuration][General]
       favoritesDisplay=1
       favoritesPortedToKAstats=true
-      icon=arch-legacy-aqua.svg
+      icon=Red-Hat.png
       paneSwap=true
       systemFavorites=suspend\\,hibernate\\,reboot\\,shutdown
       # --- Clock
