@@ -1,7 +1,23 @@
+- name: Ensure kitty directory present
+  file:
+    state: directory
+    mode: '0755'
+    path: "{{ home }}/.config/kitty"
+
 - name: Copy drop-in config
   copy:
     src: files/include.conf
     dest: "{{ home }}/.config/kitty/kitty.conf"
+
+- name: Copy theme files
+  copy:
+    src: files/{{ item }}
+    dest: "{{ home }}/.config/kitty/{{ item }}"
+    mode: '0644'
+  loop:
+    - BirdsOfParadise.conf
+    - FrontEndDelight.conf
+    - sonokai-sushia.conf
 
 - name: Change taskbar icon
   ansible.builtin.lineinfile:

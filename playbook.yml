@@ -1,22 +1,20 @@
 - name: Arch Linux laptop setup
   hosts: localhost
   roles:
-    - base
-    - shell
-#    - zsh
-    - kde
-    - kitty
-    - power
-    - role: systemd-boot
-      tags:
-        - boot
-    - rclone
-    - ssh
-    - keepassxc
-    - git
-    - firefox
-    - steam
-    - nintendoswitch
+    - { role: base, tags: ['base'] }
+    - { role: shell, tags: ['shell'] }
+    - { role: kde, tags: ['kde'] }
+    - { role: kitty, tags: ['kitty'] }
+    - { role: power, tags: ['power'] }
+    - { role: systemd-boot, tags: ['systemd-boot'] }
+    - { role: rclone, tags: ['rclone'] }
+    - { role: ssh, tags: ['ssh'] }
+    - { role: keepassxc, tags: ['keepassxc'] }
+    - { role: git, tags: ['git'] }
+    - { role: firefox, tags: ['firefox'] }
+    - { role: steam, tags: ['steam'] }
+    - { role: nintendoswitch, tags: ['nintendoswitch'] }
+#    - { role: zsh, tags: ['zsh'] }
 #    - aur
 #    - audio
 #    - fonts

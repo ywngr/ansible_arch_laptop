@@ -30,7 +30,7 @@
     path: /boot/loader/entries/linux.conf
     insertafter: EOF
     block: |
-      options acpi_backlight=native
+      options acpi_backlight=native mitigations=off
 
 - name: Grep options string
   become: true
