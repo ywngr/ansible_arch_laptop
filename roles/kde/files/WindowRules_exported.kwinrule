@@ -48,3 +48,18 @@ types=1
 wmclass=kitty kitty
 wmclasscomplete=true
 wmclassmatch=1
+
+[mpv]
+Description=mpv
+above=true
+aboverule=3
+desktops=\\0
+desktopsrule=3
+skippager=true
+skippagerrule=3
+skipswitcher=true
+skipswitcherrule=3
+skiptaskbar=true
+skiptaskbarrule=3
+wmclass=mpv
+wmclassmatch=1

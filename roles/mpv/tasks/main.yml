@@ -1,0 +1,14 @@
+- name: Ensure config directory presented
+  file:
+    state: directory
+    path: "{{ home }}/.config/mpv"
+    mode: '0755'
+
+- name: Copy config
+  copy:
+    src: files/{{ item }}
+    dest: "{{ home }}/.config/mpv/{{ item }}"
+  loop:
+    - mpv.conf
+    - input.conf
+

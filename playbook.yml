@@ -14,6 +14,7 @@
     - { role: firefox, tags: ['firefox'] }
     - { role: steam, tags: ['steam'] }
     - { role: nintendoswitch, tags: ['nintendoswitch'] }
+    - { role: mpv, tags: ['mpv'] }
 #    - { role: zsh, tags: ['zsh'] }
 #    - aur
 #    - audio

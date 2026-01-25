@@ -120,3 +120,9 @@
       [multilib]
       Include = /etc/pacman.d/mirrorlist
   notify: Upgrade arch system
+
+- name: Create downloads symlink to Download directory in archive
+  file:
+    state: link
+    src: "{{ home }}/{{ archive_name }}/Downloads"
+    dest: "{{ home }}/downloads"
