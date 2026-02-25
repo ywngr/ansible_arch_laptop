@@ -1,14 +1,18 @@
 - name: Ensure config directory presented
   file:
     state: directory
-    path: "{{ home }}/.config/mpv"
+    path: "{{ home }}/.config/{{ item }}"
     mode: '0755'
+  loop:
+    - mpv
+    - mpv/script-opts
 
 - name: Copy config
   copy:
-    src: files/{{ item }}
-    dest: "{{ home }}/.config/mpv/{{ item }}"
+    src: files/{{ item.file }}
+    dest: "{{ home }}/.config/{{ item.path }}/{{ item.file }}"
   loop:
-    - mpv.conf
-    - input.conf
+    - { "path": mpv, "file": mpv.conf }
+    - { "path": mpv, "file": input.conf }
+    - { "path": mpv/script-opts, "file": osc.conf }
 

@@ -42,6 +42,7 @@
       - neovim
       - networkmanager-openvpn
       - nicotine+
+      - noto-fonts-cjk
       - nvtop
       - obsidian
       - openssh
@@ -57,6 +58,7 @@
       - strawberry
       - tmux
       - unzip
+      - vmpk
       - wavpack
       - whois
       - wget

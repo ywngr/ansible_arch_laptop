@@ -1,0 +1,9 @@
+color listnormal color238 black
+color listfocus color10 default
+color listnormal_unread white default
+color listfocus_unread color10 default
+color info color238 black
+
+feedlist-format     "%1i. %4U %t"
+articlelist-format  " %8D | %?T?|%-17T| ?%t"
+datetime-format "%d.%m.%y"

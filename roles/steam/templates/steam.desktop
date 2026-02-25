@@ -1,7 +1,7 @@
 [Desktop Entry]
 Categories=Game;
 Comment=Application for managing and playing games on Steam
-Exec=env MANGOHUD=1 /usr/bin/steam %U
+Exec=env MANGOHUD=1 {{ nvidia_offload_env }} /usr/bin/steam %U
 Icon=steam
 MimeType=x-scheme-handler/steam;x-scheme-handler/steamlink;
 Name=Steam

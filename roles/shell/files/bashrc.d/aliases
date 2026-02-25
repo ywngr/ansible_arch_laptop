@@ -32,3 +32,4 @@ alias eng='sgpt --role english_teacher'
 alias sudi='sudo -i'
 alias diff='diff --color=auto'
 alias pacman='sudo pacman'
+alias s=sudo

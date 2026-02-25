@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Citron
 Comment=Nintendo Switch emulator
-Exec=env MANGOHUD=1 {{ archive_path }}/Apps/Citron.AppImage
+Exec=env MANGOHUD=1 {{ nvidia_offload_env }} {{ archive_path }}/Apps/Citron.AppImage
 Icon=citron
 Terminal=false
 Type=Application

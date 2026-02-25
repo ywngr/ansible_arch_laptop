@@ -1,0 +1,8 @@
+- name: Install packages
+  become: true
+  pacman:
+    name:
+      - mesa
+      - lib32-mesa
+      - vulkan-intel
+      - lib32-vulkan-intel

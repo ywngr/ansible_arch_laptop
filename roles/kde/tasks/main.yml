@@ -4,6 +4,8 @@
     name:
       - gwenview
       - kwalletmanager
+      - okular
+      - krita
 
 - name: Create sddm config directory
   become: true
@@ -54,13 +56,16 @@
       playpausemedia=Launch (1)\tMedia Play,Media Play,Play/Pause media playback
       nextmedia=Shift+Volume Up,Media Next,Media playback next
       previousmedia=Shift+Volume Down,Media Previous,Media playback previous
+      [kwin]
+      Switch One Desktop to the Left=Alt+1\tMeta+Ctrl+Left,Meta+Ctrl+Left,Switch One Desktop to the Left
+      Switch One Desktop to the Right=Meta+Ctrl+Right,Meta+Ctrl+Right,Switch One Desktop to the Right
   changed_when: false
 
-- name: Create shortcut for drop-down terminal
+- name: Create task-manager shortcuts
   ansible.builtin.replace:
     path: "{{ home }}/.config/plasma-org.kde.plasma.desktop-appletsrc"
     regexp: '^launchers=.+$'
-    replace: 'launchers=applications:kitty.desktop,applications:firefox.desktop,preferred://filemanager'
+    replace: 'launchers=applications:org.kde.konsole.desktop,applications:firefox.desktop,preferred://filemanager,applications:org.kde.okular.desktop,applications:Godot.desktop,applications:blender.desktop,applications:obsidian.desktop'
 
 - name: Replace firefox icon in .desktop file
   become: true
@@ -181,7 +186,7 @@
   lineinfile:
     path: "{{ home }}/.config/{{ item }}/settings.ini"
     search_string: 'gtk-cursor-theme-size'
-    line: 'gtk-cursor-theme-size=30'
+    line: 'gtk-cursor-theme-size=36'
   loop:
     - gtk-3.0
     - gtk-4.0
@@ -200,8 +205,13 @@
       dimscreenEnabled=false
       screenedgeEnabled=false
       shakecursorEnabled=false
+      slideEnabled=false
+      [NightColor]
+      Active=true
       [MouseBindings]
       CommandWindow1=Activate and raise
+      [Windows]
+      RollOverDesktops=true
   changed_when: false
 
 - name: Disable file indexing in baloofilerc
@@ -257,8 +267,8 @@
     mode: '0600'
 
 - name: Copy powerdevilrc
-  copy:
-    src: files/powerdevilrc
+  template:
+    src: templates/powerdevilrc
     dest: "{{ home }}/.config/powerdevilrc"
     mode: '0600'
 

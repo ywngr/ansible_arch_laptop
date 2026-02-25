@@ -4,6 +4,7 @@
     - { role: base, tags: ['base'] }
     - { role: users, tags: ['users'] }
     - { role: shell, tags: ['shell'] }
+#    - { role: root, tags: ['root'] }
     - { role: kde, tags: ['kde'] }
     - { role: kitty, tags: ['kitty'] }
     - { role: power, tags: ['power'] }
@@ -21,6 +22,11 @@
     - { role: aur, tags: ['aur'] }
     - { role: states, tags: ['states'] }
     - { role: strawberry, tags: ['strawberry'] }
+    - { role: vmpk, tags: ['vmpk'] }
+    - { role: nvidia, tags: ['nvidia'] }
+    - { role: intel, tags: ['intel'] }
+    - { role: godot, tags: ['godot'] }
+    - { role: blender, tags: ['blender'] }
 #    - { role: zsh, tags: ['zsh'] }
 #    - audio
 #    - fonts

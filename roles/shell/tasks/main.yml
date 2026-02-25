@@ -6,10 +6,16 @@
     state: present
 
 - name: Deploy .inputrc
+  become: true
   copy:
     src: files/inputrc
-    dest: "{{ home }}/.inputrc"
+    dest: "{{ item.home }}/.inputrc"
     mode: '0644'
+    owner: "{{ item.user }}"
+    group: "{{ item.user }}"
+  loop:
+    - { home: "{{ home }}", user: "{{ username }}" }
+    - { home: "/root", user: root }
 
 - name: Deploy .bashrc
   copy:
@@ -28,6 +34,15 @@
     src: files/bashrc.d/
     dest: "{{ home }}/.bashrc.d/"
     mode: '0644'
+
+- name: Copy root .bash_profile
+  become: true
+  copy:
+    src: files/bashrc.d/aliases
+    dest: "/root/.bash_profile"
+    mode: '0644'
+    owner: root
+    group: root
 
 - name: Check pkgfile's cache age
   stat:

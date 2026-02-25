@@ -1,8 +1,13 @@
+[ButtonRebinds][Mouse]
+ExtraButton1=Key,Meta+Ctrl+Left
+ExtraButton2=Key,Meta+Ctrl+Right
+
 [Libinput][10248][262][ASUF1205:00 2808:0106 Touchpad]
-PointerAcceleration=0.400
+PointerAcceleration=0.600
+ScrollFactor=0.75
 
 [Libinput][9639][64160][ProtoArc EM15]
 PointerAcceleration=0.200
 
 [Mouse]
-cursorSize=30
+cursorSize=36

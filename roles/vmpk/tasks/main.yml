@@ -1,0 +1,15 @@
+- name: Install packages
+  become: true
+  pacman:
+    name:
+      - vmpk
+
+- name: Create config directory
+  file:
+    state: directory
+    path: "{{ home }}/.config/vmpk"
+
+- name: Copy config file
+  copy:
+    src: files/VMPK.conf
+    dest: "{{ home }}/.config/vmpk/"

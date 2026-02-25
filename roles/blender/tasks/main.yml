@@ -1,0 +1,4 @@
+- name: Copy .desktop file
+  template:
+    src: templates/blender.desktop
+    dest: "{{ home }}/.local/share/applications/blender.desktop"
