@@ -3,7 +3,7 @@
 if [[ $1 == "ac" ]]; then
 	kscreen-doctor output.1.mode.1
 	rfkill unblock bluetooth
-	brightnessctl s 50
+	brightnessctl s 70
 elif [[ $1 == "bat" ]]; then
 	kscreen-doctor output.1.mode.2
 	rfkill block bluetooth

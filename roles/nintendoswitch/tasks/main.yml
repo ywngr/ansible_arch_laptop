@@ -1,3 +1,9 @@
+- name: Install packages
+  become: true
+  pacman:
+    name:
+      - nsz
+
 - name: Download emulators from dropbox
   shell: |
     rclone copy db:Apps/{{ item }} {{ home }}/{{ archive_name }}/Apps/
@@ -16,3 +22,12 @@
     - ryujinx
     - citron
 
+- name: Create folder for nsz prod keys
+  file:
+    state: directory
+    path: "{{ home }}/.switch"
+
+- name: Copy firmware and prod keys
+  command: "rclone copy db:Apps/nintendoswitch/ {{ home }}/.switch/"
+  args:
+    creates: "{{ home }}/.switch/prod.keys"
