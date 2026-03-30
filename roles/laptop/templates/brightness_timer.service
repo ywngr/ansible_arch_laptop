@@ -1,0 +1,10 @@
+[Unit]
+Description=Check time and adjust screen and keyboard led brightness
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart={{ home }}/.local/bin/brightness_timer.sh
+
+[Install]
+WantedBy=graphical-session.target

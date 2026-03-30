@@ -1,0 +1,10 @@
+[Unit]
+Description=Run time check every hour and on boot
+
+[Timer]
+OnBootSec=30s
+OnCalendar=hourly
+Persistent=true
+
+[Install]
+WantedBy=timers.target

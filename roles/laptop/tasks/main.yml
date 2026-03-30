@@ -1,0 +1,20 @@
+- name: Copy systemd brightness service and timer
+  template:
+    src: "templates/brightness_timer.{{ item }}"
+    dest: "{{ home }}/.config/systemd/user/"
+  loop:
+    - service
+    - timer
+  notify: Reload systemd in user scope
+
+- name: Enable and start service
+  systemd_service:
+    name: "brightness_timer.{{ item }}"
+    scope: user
+    state: started
+    enabled: true
+    daemon_reload: true
+  loop:
+    - service
+    - timer
+  notify: Reload systemd in user scope

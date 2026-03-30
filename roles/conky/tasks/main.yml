@@ -1,0 +1,6 @@
+# https://github.com/brndnmtthws/conky
+- name: install packages
+  become: true
+  pacman:
+    name:
+      - conky

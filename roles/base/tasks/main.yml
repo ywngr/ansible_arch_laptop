@@ -16,6 +16,7 @@
       - bind
       - cuetools
       - curl
+      - emacs
       - feh
       - firefox
       - flac
@@ -51,6 +52,7 @@
       - playerctl
       - qbittorrent
       - rclone
+      - realtime-privileges
       - reaper
       - rust
       - socat
@@ -61,6 +63,8 @@
       - vmpk
       - wavpack
       - whois
+      - wine-staging
+      - winetricks
       - wget
       - yt-dlp
       - zsh

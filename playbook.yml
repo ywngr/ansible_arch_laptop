@@ -27,6 +27,8 @@
     - { role: intel, tags: ['intel'] }
     - { role: godot, tags: ['godot'] }
     - { role: blender, tags: ['blender'] }
+    - { role: conky, tags: ['conky'] }
+    - { role: laptop, tags: ['laptop'] }
 #    - { role: zsh, tags: ['zsh'] }
 #    - audio
 #    - fonts

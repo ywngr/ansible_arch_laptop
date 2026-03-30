@@ -165,19 +165,19 @@
   lineinfile:
     path: "{{ home }}/.config/kdeglobals"
     search_string: 'AnimationDurationFactor'
-    line: 'AnimationDurationFactor=0'
+    line: 'AnimationDurationFactor=0.7071067811865475'
 
 - name: Disable animation xsettingsd
   lineinfile:
     path: "{{ home }}/.config/xsettingsd/xsettingsd.conf"
     search_string: 'Gtk/EnableAnimations'
-    line: 'Gtk/EnableAnimations 0'
+    line: 'Gtk/EnableAnimations 1'
 
 - name: Disable animation gtk
   lineinfile:
     path: "{{ home }}/.config/{{ item }}/settings.ini"
     search_string: 'gtk-enable-animations'
-    line: 'gtk-enable-animations=false'
+    line: 'gtk-enable-animations=true'
   loop:
     - gtk-3.0
     - gtk-4.0

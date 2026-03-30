@@ -1,6 +1,7 @@
 [Layout]
 DisplayNames=,
 LayoutList=us,ru
+Options=grp_led:caps,ctrl:nocaps
 ResetOldOptions=true
 Use=true
 VariantList=,
