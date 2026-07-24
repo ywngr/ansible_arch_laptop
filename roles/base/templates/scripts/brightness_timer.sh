@@ -2,10 +2,10 @@
 
 HOUR=$(date +%H)
 
-if [ "$HOUR" -ge 8 ] && [ "$HOUR" -lt 19 ]; then
-	brightnessctl s 75
+if [ "$HOUR" -ge 5 ] && [ "$HOUR" -lt 21 ]; then
+	brightnessctl s 65
 	brightnessctl -d 'asus::kbd_backlight' s 0
 else
-	brightnessctl s 55
-	brightnessctl -d 'asus::kbd_backlight' s 1
+	brightnessctl s 50
+#	brightnessctl -d 'asus::kbd_backlight' s 1
 fi

@@ -6,10 +6,10 @@
 
 - name: Download emulators from dropbox
   shell: |
-    rclone copy db:Apps/{{ item }} {{ home }}/{{ archive_name }}/Apps/
-    chmod 755 {{ home }}/{{ archive_name }}/Apps/{{ item }}
+    rclone copy db:Apps/{{ item }} {{ home }}/{{ archive_1tb_name }}/Apps/
+    chmod 755 {{ home }}/{{ archive_1tb_name }}/Apps/{{ item }}
   args:
-    creates: "{{ home }}/{{ archive_name }}/Apps/{{ item }}"
+    creates: "{{ home }}/{{ archive_1tb_name }}/Apps/{{ item }}"
   loop:
     - Ryujinx.AppImage
     - Citron.AppImage

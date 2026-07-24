@@ -7,7 +7,7 @@ quitAfterSaveCopyExport=true
 [ImageSave]
 imageCompressionQuality=40
 imageFilenameTemplate=Screenshot_<dd><MMM><yy>_<HH><mm>
-imageSaveLocation=file://{{ archive_path }}/Pictures/Screenshots/
+imageSaveLocation=file://{{ archive_1tb_path }}/Pictures/Screenshots/
 translatedScreenshotsFolder=Screenshots
 preferredImageFormat=JPEG
 

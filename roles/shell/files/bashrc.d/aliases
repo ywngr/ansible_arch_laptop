@@ -33,3 +33,4 @@ alias sudi='sudo -i'
 alias diff='diff --color=auto'
 alias pacman='sudo pacman'
 alias s=sudo
+alias fd='fd -H'

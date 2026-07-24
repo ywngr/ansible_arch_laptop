@@ -1,14 +1,14 @@
 ansible_python_interpreter: /usr/bin/python3
 username: ywngr
 home: /home/{{ username }}
-user_groups: "realtime"
-archive_name: archive
-archive_path: "{{ home }}/{{ archive_name }}"
+user_groups: "realtime, kvm, libvirt"
+#archive_name: archive
+#archive_path: "{{ home }}/{{ archive_name }}"
 archive_1tb_name: archive_tb
 archive_1tb_path: "{{ home }}/{{ archive_1tb_name }}"
 dotfiles_repo: https://github.com/ywngrr/dotfiles.git
 dotfiles_dir: /home/{{ username }}/.dotfiles
-kernel_opts: "mitigations=off rd.driver.blacklist=nouveau,nova_core modprobe.blacklist=nouveau,nova_core preempt=full pci=noaer"
+kernel_opts: "mitigations=off rd.driver.blacklist=nouveau,nova_core modprobe.blacklist=nouveau,nova_core preempt=full pci=noaer nvidia-drm.modeset=1"
 ansible_user: ansible_user
 ansible_git_name: ansible_arch_laptop
 ansible_path: "{{ home }}/{{ ansible_git_name }}"

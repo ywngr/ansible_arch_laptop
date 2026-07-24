@@ -1,10 +1,10 @@
 [transfers]
 autoclear_downloads = True
 rescanonstartup = True
-downloaddir = {{ archive_path }}/Downloads/nicotine
-incompletedir = {{ archive_path }}/Downloads/nicotine/incomplete
+downloaddir = {{ archive_1tb_path }}/Downloads/nicotine
+incompletedir = {{ archive_1tb_path }}/Downloads/nicotine/incomplete
 usernamesubfolders = False
-shared = [('Music', '{{ archive_path }}/Music')]
+shared = [('Music', '{{ archive_1tb_path }}/Music')]
 groupdownloads = folder_grouping
 groupuploads = folder_grouping
 

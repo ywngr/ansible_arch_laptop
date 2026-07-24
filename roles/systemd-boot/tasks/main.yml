@@ -6,7 +6,6 @@
     group: root
     mode: '0755'
     content: |
-      default @saved
       timeout 3
       console-mode max
       editor no

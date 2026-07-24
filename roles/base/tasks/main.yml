@@ -13,10 +13,13 @@
       - base
       - base-devel
       - bat
+      - bc
       - bind
       - cuetools
       - curl
+      - dosfstools
       - emacs
+      - fd
       - feh
       - firefox
       - flac
@@ -44,20 +47,25 @@
       - networkmanager-openvpn
       - nicotine+
       - noto-fonts-cjk
+      - ntfsprogs
       - nvtop
       - obsidian
       - openssh
+      - pacman-contrib
       - pdfgrep
       - pkgfile
+      - pv
       - playerctl
       - qbittorrent
       - rclone
       - realtime-privileges
       - reaper
+      - rsync
       - rust
       - socat
       - strace
       - strawberry
+      - terminus-font
       - tmux
       - unzip
       - vmpk
@@ -76,7 +84,6 @@
     mode: '0600'
     dest: /etc/crypttab
     content: |
-      {{ archive_name }} LABEL={{ archive_name }} /etc/cryptsetup-keys.d/secondary.key  timeout=180,luks
       {{ archive_1tb_name }} LABEL={{ archive_1tb_name }} /etc/cryptsetup-keys.d/secondary.key  timeout=180,luks
   notify: Reload systemd
 
@@ -89,7 +96,6 @@
     mode: '0755'
     state: directory
   loop:
-    - "{{ archive_path }}"
     - "{{ archive_1tb_path }}"
   notify: Reload systemd
 
@@ -100,7 +106,6 @@
     append_newline: true
     prepend_newline: true
     content: |
-      /dev/mapper/{{ archive_name }} {{ archive_path }} ext4  rw,relatime	0 2
       /dev/mapper/{{ archive_1tb_name }} {{ archive_1tb_path }} ext4  rw,relatime	0 2
   notify: Reload systemd
 
@@ -140,7 +145,7 @@
 - name: Create downloads symlink to Download directory in archive
   file:
     state: link
-    src: "{{ home }}/{{ archive_name }}/Downloads"
+    src: "{{ home }}/{{ archive_1tb_name }}/Downloads"
     dest: "{{ home }}/downloads"
 
 - name: Add russian locale

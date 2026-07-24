@@ -29,6 +29,9 @@
     - { role: blender, tags: ['blender'] }
     - { role: conky, tags: ['conky'] }
     - { role: laptop, tags: ['laptop'] }
+    - { role: pacman, tags: ['pacman'] }
+    - { role: retroarch, tags: ['retroarch'] }
+    - { role: virt, tags: ['virt'] }
 #    - { role: zsh, tags: ['zsh'] }
 #    - audio
 #    - fonts

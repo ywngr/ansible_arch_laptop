@@ -37,12 +37,12 @@
     state: directory
     mode: '0755'
 
-- name: Create shortcut for drop-down terminal
-  ansible.builtin.lineinfile:
-    path: "{{ home }}/.config/kglobalshortcutsrc"
-    search_string: 'activate task manager entry 1='
-    line: 'activate task manager entry 1=`,Meta+1,Activate Task Manager Entry 1'
-  changed_when: false
+#- name: Create shortcut for drop-down terminal
+#  ansible.builtin.lineinfile:
+#    path: "{{ home }}/.config/kglobalshortcutsrc"
+#    search_string: 'activate task manager entry 1='
+#    line: 'activate task manager entry 1=`,Meta+1,Activate Task Manager Entry 1'
+#  changed_when: false
 
 - name: Add change layout Shift+Alt shortcut
   blockinfile:
@@ -57,7 +57,7 @@
       nextmedia=Shift+Volume Up,Media Next,Media playback next
       previousmedia=Shift+Volume Down,Media Previous,Media playback previous
       [kwin]
-      Switch One Desktop to the Left=Alt+1\tMeta+Ctrl+Left,Meta+Ctrl+Left,Switch One Desktop to the Left
+      Switch One Desktop to the Left=Meta+Ctrl+Left,Meta+Ctrl+Left,Switch One Desktop to the Left
       Switch One Desktop to the Right=Meta+Ctrl+Right,Meta+Ctrl+Right,Switch One Desktop to the Right
   changed_when: false
 
@@ -65,7 +65,7 @@
   ansible.builtin.replace:
     path: "{{ home }}/.config/plasma-org.kde.plasma.desktop-appletsrc"
     regexp: '^launchers=.+$'
-    replace: 'launchers=applications:org.kde.konsole.desktop,applications:firefox.desktop,preferred://filemanager,applications:org.kde.okular.desktop,applications:Godot.desktop,applications:blender.desktop,applications:obsidian.desktop'
+    replace: 'launchers=applications:org.kde.konsole.desktop,preferred://browser,applications:org.kde.dolphin.desktop,applications:org.strawberrymusicplayer.strawberry.desktop,applications:org.kde.okular.desktop,applications:obsidian.desktop'
 
 - name: Replace firefox icon in .desktop file
   become: true
@@ -171,13 +171,13 @@
   lineinfile:
     path: "{{ home }}/.config/xsettingsd/xsettingsd.conf"
     search_string: 'Gtk/EnableAnimations'
-    line: 'Gtk/EnableAnimations 1'
+    line: 'Gtk/EnableAnimations 0'
 
 - name: Disable animation gtk
   lineinfile:
     path: "{{ home }}/.config/{{ item }}/settings.ini"
     search_string: 'gtk-enable-animations'
-    line: 'gtk-enable-animations=true'
+    line: 'gtk-enable-animations=false'
   loop:
     - gtk-3.0
     - gtk-4.0

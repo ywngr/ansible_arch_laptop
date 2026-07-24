@@ -1,4 +1,5 @@
 [AC][Display]
+DimDisplayIdleTimeoutSec=1500
 TurnOffDisplayIdleTimeoutSec=1800
 
 [AC][RunScript]
@@ -8,7 +9,7 @@ ProfileLoadCommand={{ home }}/.local/bin/kde_power_change_runscript.sh ac
 AutoSuspendAction=0
 
 [Battery][Display]
-TurnOffDisplayIdleTimeoutSec=1800
+TurnOffDisplayIdleTimeoutSec=600
 
 [Battery][RunScript]
 ProfileLoadCommand={{ home }}/.local/bin/kde_power_change_runscript.sh bat

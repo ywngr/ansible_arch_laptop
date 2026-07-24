@@ -1,9 +1,9 @@
 [Appearance]
-background_image_do_not_cut=true
+background_image_do_not_cut=false
 background_image_keep_aspect_ratio=true
 background_image_max_size=0
 background_image_position=5
-background_image_stretch=false
+background_image_stretch=true
 background_image_type=1
 blur_radius=0
 icon_size_configure_buttons=16
@@ -12,9 +12,11 @@ icon_size_play_control_buttons=32
 icon_size_playlist_buttons=20
 icon_size_tabbar_large_mode=40
 icon_size_tabbar_small_mode=32
-opacity_level=100
+opacity_level=60
+playlist_playing_song_color=@Variant(\0\0\0\x43\x1\xff\xff\xff\xff\0\0\0\0\0\0)
 style=default
 system_icons=false
+tab_color=@Variant(\0\0\0\x43\x2\xff\xff]\xc0\x17\x17\x90\xdd\0\0)
 tab_gradient=true
 tab_system_color=true
 
@@ -26,10 +28,10 @@ keeprunning=true
 menu_playmode=1
 menu_previousmode=1
 playing_widget=true
-resumeplayback=false
+resumeplayback=true
 seek_step_sec=10
 showtrayicon=true
-startupbehaviour=3
+startupbehaviour=2
 taskbar_progress=false
 trayicon_progress=false
 volume_increment=5
@@ -48,7 +50,7 @@ group_by1=1
 group_by2=5
 group_by3=0
 group_by_version=1
-last_path={{ archive_path }}/Music
+last_path={{ archive_1tb_path }}/Music
 mark_songs_unavailable=true
 monitor=true
 overwrite_playcount=false
@@ -70,12 +72,12 @@ fit_cover_width=true
 mode=1
 
 [Playlist]
-alternating_row_colors=true
+alternating_row_colors=false
 auto_sort=false
 continue_on_error=false
 delete_files=false
 editmetadatainline=false
-glow_effect=true
+glow_effect=false
 greyout_songs_play=true
 greyout_songs_startup=false
 path_type=0
@@ -87,3 +89,9 @@ show_toolbar=true
 state_version=2
 warn_close_playlist=true
 write_metadata=false
+
+[Moodbar]
+enabled=false
+save=false
+show=false
+style=0

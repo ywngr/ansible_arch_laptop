@@ -45,3 +45,4 @@
   changed_when: "'Installing' in paru_result.stdout"
   loop:
     - shntool
+    - plex-media-server
