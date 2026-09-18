@@ -11,8 +11,8 @@
   systemd_service:
     name: "brightness_timer.{{ item }}"
     scope: user
-    state: started
-    enabled: true
+    state: stopped
+    enabled: false
     daemon_reload: true
   loop:
     - service
