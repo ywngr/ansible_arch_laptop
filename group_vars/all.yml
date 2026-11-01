@@ -8,6 +8,7 @@ archive_1tb_name: archive_tb
 archive_1tb_path: "{{ home }}/{{ archive_1tb_name }}"
 dotfiles_repo: https://github.com/ywngrr/dotfiles.git
 dotfiles_dir: /home/{{ username }}/.dotfiles
+db_path: "{{archive_1tb_path}}/Games/Dendy"
 kernel_opts: "mitigations=off rd.driver.blacklist=nouveau,nova_core modprobe.blacklist=nouveau,nova_core preempt=full pci=noaer nvidia-drm.modeset=1"
 ansible_user: ansible_user
 ansible_git_name: ansible_arch_laptop

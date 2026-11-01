@@ -6,22 +6,22 @@
 - name: First start
   command: /usr/bin/keepassxc
   args:
-    creates: "{{ home }}/.cache/keepassxc/keepassxc.ini"
+    creates: "{{ home }}/.config/keepassxc/keepassxc.ini"
 
-- name: Insert/Update configuration block in .cache/keepasscx
-  ansible.builtin.blockinfile:
-    path: "{{ home }}/.cache/keepassxc/keepassxc.ini"
-    append_newline: true
-    prepend_newline: true
-    block: |
-      [GUI]
-      FontSizeOffset=2
-      GroupSplitterState=536, 413
-      PreviewSplitterState=632, 317
-      SplitterState=230, 1667
-      [SSHAgent]
-      AuthSockOverride=/run/user/1000/ssh-agent.socket
-  changed_when: false
+#- name: Insert/Update configuration block in .cache/keepasscx
+#  ansible.builtin.blockinfile:
+#    path: "{{ home }}/.cache/keepassxc/keepassxc.ini"
+#    append_newline: true
+#    prepend_newline: true
+#    block: |
+#      [GUI]
+#      FontSizeOffset=2
+#      GroupSplitterState=536, 413
+#      PreviewSplitterState=632, 317
+#      SplitterState=230, 1667
+#      [SSHAgent]
+#      AuthSockOverride=/run/user/1000/ssh-agent.socket
+#  changed_when: false
 
 - name: Insert/Update configuration block in .config/keepasscx
   ansible.builtin.blockinfile:
