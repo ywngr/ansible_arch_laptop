@@ -10,22 +10,28 @@
 (function () {
     'use strict';
 
-    const titles = [...document.querySelectorAll('a.favorites-title')]
-        .filter(a => a.querySelector('i.fa-check-square'))
-        .map(a => a.textContent.trim());
+        const titles = [
+            ...document.querySelectorAll(
+                'button.dropdown-item:has(i.bi-check-square)'
+            )
+        ].map(button => {
+            const icon = button.querySelector('i');
+            return button.textContent
+                .replace(icon.textContent, '')
+                .trim();
+        });
 
-    const titleDiv = document.querySelector('h1.iv-title-ru');
+    const chips = document.querySelector('.kp-chips');
+    const lastChip = chips?.querySelector('.kp-chip:last-of-type');
 
-    if (titleDiv && titles.length) {
-        const element = document.createElement('span');
-
-        element.textContent = titles.join(', ');
-        element.style.fontWeight = 'bold';
-        element.style.background = 'red';
-        element.style.color = 'white';
-        element.style.marginLeft = '0px';
-        element.style.padding = '4px 12px';
-        element.style.borderRadius = '7px';
-        titleDiv.after(element);
+    if (lastChip && titles.length) {
+        titles.forEach(title => {
+            const element = document.createElement('span');
+            element.className = 'kp-chip';
+            element.textContent = title;
+            element.style.background = 'rgba(240, 41, 41, 0.1)';
+            element.style.color = '#f02929';
+            lastChip.after(element);
+        });
     }
 })();
